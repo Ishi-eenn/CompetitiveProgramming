@@ -1,8 +1,8 @@
-# AtCoder 306
+# AtCoder ABC306
 
 ## Overview
 
-[AtCoder 306](https://atcoder.jp/contests/abc306)を解いてみた。
+[AtCoder ABC306](https://atcoder.jp/contests/abc306)を解いてみた。
 
 | Project | Result |   Date    |
 | :-----: | :----: | :-------: |

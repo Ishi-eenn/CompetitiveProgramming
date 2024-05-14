@@ -2,7 +2,7 @@
 
 ## Overview
 
-[AtCoder ABC306](https://atcoder.jp/contests/abc353)を解いてみた。
+[AtCoder ABC353](https://atcoder.jp/contests/abc353)を解いてみた。
 
 | Project | Result |   Date    |
 | :-----: | :----: | :-------: |

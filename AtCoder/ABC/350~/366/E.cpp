@@ -2,31 +2,54 @@
 using namespace std;
 typedef long long ll;
 
-int main() {
-  ll n, d;
+vector<ll> calculate_distances(vector<ll> &v, ll n, ll d){
+  sort(v.begin(), v.end());
+  ll x = v[0], tmp = 0;
+  for(ll i = 0; i < n; i++)
+    tmp += (v[i] - x);
+
+  while(tmp < d){
+    x--;
+    tmp += n;
+  }
+
+  ll left = 0, right = n, nxt = 0;
+  vector<ll> ans;
+  while (true){
+    if(tmp <= d)
+      ans.push_back(tmp);
+    else if(nxt == n)
+      break;
+
+    while (nxt < n && x == v[nxt]){
+      nxt++;
+      right--;
+      left++;
+    }
+    x++;
+    tmp += left - right;
+  }
+  return ans;
+}
+
+int main(){
+  ios::sync_with_stdio(false);
+  cin.tie(nullptr);
+  cout << fixed << setprecision(15);
+
+  ll n, d, ans = 0;
   cin >> n >> d;
 
   vector<ll> x(n), y(n);
-  for (ll i = 0; i < n; i++)
-    cin >> x[i] >> y[i];
+  for (int i = 0; i < n; i++) cin >> x[i] >> y[i];
 
-  nth_element(x.begin(), x.begin() + n / 2, x.end());
-  nth_element(y.begin(), y.begin() + n / 2, y.end());
-  ll median_x = x[n / 2];
-  ll median_y = y[n / 2];
+  vector<ll> a = calculate_distances(x, n, d), b = calculate_distances(y, n, d);
+  sort(b.begin(), b.end());
 
-  ll count = 0;
-  for (ll xi = median_x - d; xi <= median_x + d; xi++) {
-    for (ll yi = median_y - d; yi <= median_y + d; yi++) {
-      ll total_distance = 0;
-      for (ll i = 0; i < n; i++)
-        total_distance += abs(xi - x[i]) + abs(yi - y[i]);
-
-      if (total_distance <= d)
-        count++;
-    }
+  for (ll a : a) {
+    auto iter = lower_bound(b.begin(), b.end(), d-a+1);
+    ans += distance(b.begin(), iter);
   }
 
-  cout << count << endl;
+  cout << ans << endl;
 }
-

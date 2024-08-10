@@ -2,7 +2,7 @@
 
 ## Overview
 
-[AtCoder ABC354](https://atcoder.jp/contests/abc366)を解いてみた。
+[AtCoder ABC366](https://atcoder.jp/contests/abc366)を解いてみた。
 
 | Project | Result |   Date    |
 | :-----: | :----: | :-------: |
@@ -11,5 +11,6 @@
 |    C    |   AC   | 2024.8.10 |
 |    D    |   AC   | 2024.8.10 |
 |    E    |  TLE   | 2024.8.10 |
+|    E    |   AC   | 2024.8.11 |
 
 ##

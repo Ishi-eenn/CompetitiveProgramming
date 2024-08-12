@@ -4,12 +4,19 @@ using namespace std;
 #define int ll
 #define ll long long
 
+void solve() {
+
+}
+
 signed main() {
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
   cout.tie(nullptr);
 
-  ll n;
-  cin >> n;
+  int t = 1;
+  // cin >> t;
+  while(t--)
+    solve();
 
+  return 0;
 }

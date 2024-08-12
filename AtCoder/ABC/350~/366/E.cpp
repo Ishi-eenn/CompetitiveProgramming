@@ -35,7 +35,7 @@ vector<ll> calculate_distances(vector<ll> &v, ll n, ll d){
 int main(){
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
-  cout << fixed << setprecision(15);
+  cout.tie(nullptr);
 
   ll n, d, ans = 0;
   cin >> n >> d;

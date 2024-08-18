@@ -7,10 +7,14 @@ using namespace std;
 #define rall(...) std::rbegin(__VA_ARGS__), std::rend(__VA_ARGS__)
 
 void solve() {
-  ll a, b;
-  cin >> a >> b;
+  ll a, b, c;
+  cin >> a >> b >> c;
 
-  cout << a - b << endl;
+  if (c < b)
+    cout << (c <= a && a < b ? "Yes" : "No") << endl;
+  else
+    cout << (a >= c || a < b ? "Yes" : "No") << endl;
+
 }
 
 signed main() {

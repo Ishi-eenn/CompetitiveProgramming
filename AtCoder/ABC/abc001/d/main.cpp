@@ -65,10 +65,5 @@ signed main() {
   cin.tie(nullptr);
   cout.tie(nullptr);
 
-  int t = 1;
-  // cin >> t;
-  while(t--)
-    solve();
-
-  return 0;
+  solve();
 }

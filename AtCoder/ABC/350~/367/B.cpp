@@ -7,20 +7,20 @@ using namespace std;
 #define rall(...) std::rbegin(__VA_ARGS__), std::rend(__VA_ARGS__)
 
 void solve() {
-  ll m;
-  cin >> m;
+  double x;
+  cin >> x;
 
-  if(m < 100)
-    cout << "00" << endl;
-  else if(100 <= m && m <= 5000)
-    cout << setfill('0') << setw(2) << m / 100 << endl;
-  else if(6000 <= m && m <= 30000)
-    cout << m / 1000 + 50 << endl;
-  else if(35000 <= m && m <= 70000)
-    cout << (m / 1000 - 30) / 5 + 80 << endl;
-  else if(70000 < m)
-    cout << 89 << endl;
+  stringstream ss;
+  ss << fixed << setprecision(3) << x;
+  string s = ss.str();
 
+  while (s.back() == '0')
+    s.pop_back();
+
+  if (s.back() == '.')
+    s.pop_back();
+
+  cout << s << endl;
 }
 
 signed main() {
@@ -31,7 +31,7 @@ signed main() {
   int t = 1;
   // cin >> t;
   while(t--)
-    solve();
+      solve();
 
   return 0;
 }

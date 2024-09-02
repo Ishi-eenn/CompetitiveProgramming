@@ -7,6 +7,22 @@ using namespace std;
 #define rall(...) std::rbegin(__VA_ARGS__), std::rend(__VA_ARGS__)
 
 void solve() {
+  ll n, k;
+  cin >> n >> k;
+
+  vector<ll> p(n), q(n);
+  for(auto &e : p) cin >> e;
+  for(auto &e : q) cin >> e;
+
+  for(auto &pi : p)
+    for(auto &qi : q) {
+      if(pi + qi == k) {
+        cout << "Yes" << endl;
+        return;
+      }
+    }
+
+  cout << "No" << endl;
 }
 
 signed main() {

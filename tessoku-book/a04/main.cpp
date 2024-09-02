@@ -7,6 +7,11 @@ using namespace std;
 #define rall(...) std::rbegin(__VA_ARGS__), std::rend(__VA_ARGS__)
 
 void solve() {
+  ll n;
+  cin >> n;
+
+  bitset<10> bits(n);
+  cout << bits << endl;
 }
 
 signed main() {

@@ -7,6 +7,22 @@ using namespace std;
 #define rall(...) std::rbegin(__VA_ARGS__), std::rend(__VA_ARGS__)
 
 void solve() {
+  ll n, q;
+  cin >> n;
+
+  vector<ll> a(n);
+  for(auto &e : a) cin >> e;
+
+  cin >> q;
+  vector<ll> x(q);
+  for(auto &e : x) cin >> e;
+
+  sort(all(a));
+
+  for(ll i = 0; i < q; i++) {
+    ll pos = lower_bound(all(a), x[i]) - a.begin();
+    cout << pos << endl;
+  }
 }
 
 signed main() {

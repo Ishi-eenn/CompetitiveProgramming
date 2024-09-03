@@ -26,11 +26,13 @@ void solve() {
       f.push_back(c[i] + d[j]);
 
   sort(all(f));
-  for(auto x : e)
-    if(binary_search(all(f), k - x)) {
+  for(auto x : e) {
+    ll pos = lower_bound(all(f), k - x) - f.begin();
+    if (pos < f.size() && f[pos] == k - x) {
       cout << "Yes" << endl;
       return;
     }
+  }
 
   cout << "No" << endl;
 }

@@ -13,8 +13,18 @@ void solve() {
   vector<ll> a(n);
   for(auto &e : a) cin >> e;
 
-  ll pos = lower_bound(all(a), x) - a.begin();
-  cout << pos + 1 << endl;
+  ll l = 0, r = n - 1;
+  while(l <= r) {
+    ll m = (l + r) / 2;
+
+    if(a[m] == x) {
+      cout << m + 1 << endl;
+      return;
+    } else if(a[m] < x)
+      l = m + 1;
+     else
+      r = m - 1;
+  }
 }
 
 signed main() {

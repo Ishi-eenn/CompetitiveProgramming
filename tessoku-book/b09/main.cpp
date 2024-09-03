@@ -11,7 +11,7 @@ void solve() {
   const ll max = 1500;
   cin >> n;
 
-  vector< vector<ll> > s(max + 2, vector<ll>(max + 2, 0));
+  vector< vector<ll> > s(max + 1, vector<ll>(max + 1, 0));
   for(ll i = 0; i < n; i++) {
     ll a, b, c, d;
     cin >> a >> b >> c >> d;

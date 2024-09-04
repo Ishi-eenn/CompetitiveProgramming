@@ -7,6 +7,13 @@ using namespace std;
 #define rall(...) std::rbegin(__VA_ARGS__), std::rend(__VA_ARGS__)
 
 void solve() {
+  ll n;
+  cin >> n;
+
+  vector<ll> a(n);
+  for(auto &e : a) cin >> e;
+
+  cout << accumulate(all(a), a[0], lcm<ll, ll>) << endl;
 }
 
 signed main() {

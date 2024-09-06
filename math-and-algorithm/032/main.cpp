@@ -7,6 +7,18 @@ using namespace std;
 #define rall(...) std::rbegin(__VA_ARGS__), std::rend(__VA_ARGS__)
 
 void solve() {
+  ll n, x;
+  cin >> n >> x;
+
+  vector<ll> a(n);
+  for(auto &e : a) cin >> e;
+
+  sort(all(a));
+
+  if(binary_search(all(a), x))
+    cout << "Yes" << endl;
+  else
+    cout << "No" << endl;
 }
 
 signed main() {

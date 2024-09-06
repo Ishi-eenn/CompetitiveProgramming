@@ -7,6 +7,14 @@ using namespace std;
 #define rall(...) std::rbegin(__VA_ARGS__), std::rend(__VA_ARGS__)
 
 void solve() {
+  ll n;
+  cin >> n;
+
+  double ans = 0;
+  for(ll i = n; i > 0; i--)
+    ans += 1.0 * n / i;
+
+  cout << fixed << setprecision(12) << ans << endl;
 }
 
 signed main() {

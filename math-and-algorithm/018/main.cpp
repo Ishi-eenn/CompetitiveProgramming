@@ -7,6 +7,17 @@ using namespace std;
 #define rall(...) std::rbegin(__VA_ARGS__), std::rend(__VA_ARGS__)
 
 void solve() {
+  ll n;
+  cin >> n;
+
+  map<ll, ll> mp;
+  for(ll i = 0; i < n; i++) {
+    ll a;
+    cin >> a;
+    mp[a]++;
+  }
+
+  cout << mp[100] * mp[400] + mp[200] * mp[300] << endl;
 }
 
 signed main() {

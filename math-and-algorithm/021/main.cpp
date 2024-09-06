@@ -7,6 +7,18 @@ using namespace std;
 #define rall(...) std::rbegin(__VA_ARGS__), std::rend(__VA_ARGS__)
 
 void solve() {
+  ll n, r;
+  cin >> n >> r;
+
+  ll denominator = 1, numerator = 1;
+
+  for(ll i = r; i > 0; i--)
+    denominator *= i;
+
+  for(ll i = n; i > n - r; i--)
+    numerator *= i;
+
+  cout << numerator / denominator << endl;
 }
 
 signed main() {

@@ -6,48 +6,24 @@ using namespace std;
 #define all(...) std::begin(__VA_ARGS__), std::end(__VA_ARGS__)
 #define rall(...) std::rbegin(__VA_ARGS__), std::rend(__VA_ARGS__)
 
-vector<ll> enumerate(vector<ll> a) {
-  vector<ll> sum_list;
-  for (ll i = 0; i < (1 << a.size()); i++) {
-    ll sum = 0;
-
-    for (ll j = 0; j < a.size(); j++) {
-      ll wari = (1 << j);
-
-      if ((i / wari) % 2 == 1)
-        sum += a[j];
-    }
-    sum_list.push_back(sum);
-  }
-  return sum_list;
-}
-
 void solve() {
   ll n, s;
   cin >> n >> s;
 
-  vector<ll> a(n + 1);
-  for (ll i = 1; i <= n; i++) cin >> a[i];
+  vector<ll> a(n);
+  for(auto &e : a) cin >> e;
 
-  vector<ll> l1, l2;
-  for (ll i = 1; i <= n / 2; i++)
-    l1.push_back(a[i]);
-  for (ll i = n / 2 + 1; i <= n; i++)
-    l2.push_back(a[i]);
-
-  vector<ll> sum1 = enumerate(l1);
-  vector<ll> sum2 = enumerate(l2);
-  sort(sum1.begin(), sum1.end());
-  sort(sum2.begin(), sum2.end());
-
-  for (ll i = 0; i < sum1.size(); i++) {
-    ll pos = lower_bound(sum2.begin(), sum2.end(), s - sum1[i]) - sum2.begin();
-    if (pos < sum2.size() && sum2[pos] == s - sum1[i]) {
-      cout << "Yes" << endl;
-      return ;
+  vector<vector<ll>> dp(n + 1, vector<ll>(s + 1, 0));
+  dp[0][0] = 1;
+  for(ll i = 1; i <= n; i++)
+    for(ll j = 0; j <= s; j++) {
+      if(j < a[i - 1])
+        dp[i][j] = dp[i - 1][j];
+      else if(dp[i - 1][j - a[i - 1]] == 1 || dp[i - 1][j] == 1)
+          dp[i][j] = 1;
     }
-  }
-  cout << "No" << endl;
+
+  cout << (dp[n][s] == 1 ? "Yes" : "No") << endl;
 }
 
 signed main() {

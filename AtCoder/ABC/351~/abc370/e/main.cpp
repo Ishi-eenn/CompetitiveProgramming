@@ -13,32 +13,22 @@ void solve() {
   cin >> n >> k;
 
   vector<ll> a(n);
-  for(ll i = 0; i < n; i++)
-    cin >> a[i];
+  for(auto &e : a) cin >> e;
 
-  ll total = 1, invalid = 0;
+  vector<ll> dp(n + 1, 0);
+  dp[0] = 1;
+  vector<ll> cum(n + 1, 0);
+  for (ll i = 1; i <= n; ++i)
+    cum[i] = cum[i - 1] + a[i - 1];
 
-  for (ll mask = 0; mask < (1 << (n - 1)); mask++) {
-    bool is_valid = true;
-    ll current_sum = 0;
-    for (ll i = 0; i < n; i++) {
-      current_sum += a[i];
-
-      if (i < n - 1 && (mask & (1 << i))) {
-        if (current_sum == k)
-          is_valid = false;
-        current_sum = 0;
-      }
+  for (ll i = 1; i <= n; ++i)
+    for (ll j = 0; j < i; ++j) {
+      ll sum = cum[i] - cum[j];
+      if (sum != k)
+        dp[i] = (dp[i] + dp[j]) % MOD;
     }
-    if (current_sum == k)
-      is_valid = false;
-    if (!is_valid)
-      invalid++;
-  }
 
-  total = (1LL << (n - 1));
-  ll result = (total - invalid + MOD) % MOD;
-  cout << result << endl;
+  cout << dp[n] << endl;
 }
 
 signed main() {

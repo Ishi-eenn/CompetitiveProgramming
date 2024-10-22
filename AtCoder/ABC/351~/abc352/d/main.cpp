@@ -1,9 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define int long long
+#define int ll
 #define ll long long
-#define all(v) (v).begin(), (v).end()
+#define all(...) std::begin(__VA_ARGS__), std::end(__VA_ARGS__)
+#define rall(...) std::rbegin(__VA_ARGS__), std::rend(__VA_ARGS__)
 
 void solve() {
   ll n, k;

@@ -7,6 +7,11 @@ using namespace std;
 #define rall(...) std::rbegin(__VA_ARGS__), std::rend(__VA_ARGS__)
 
 void solve() {
+  string s;
+  cin >> s;
+
+  sort(all(s));
+  cout << ("ABC" == s ? "Yes" : "No") << endl;
 }
 
 signed main() {
